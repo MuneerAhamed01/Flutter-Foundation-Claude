@@ -1,0 +1,34 @@
+# Native flavor setup (Android productFlavors + iOS schemes/xcconfigs).
+# Re-run with: dart run flutter_flavorizr -f
+# Only native processors run, so lib/ is never touched.
+app:
+  android:
+    flavorDimensions: "flavor-type"
+
+flavors:
+  dev:
+    app:
+      name: "Flutter Foundation Dev"
+    android:
+      applicationId: "com.foundation.app.dev"
+    ios:
+      bundleId: "com.foundation.app.dev"
+  prod:
+    app:
+      name: "Flutter Foundation"
+    android:
+      applicationId: "com.foundation.app"
+    ios:
+      bundleId: "com.foundation.app"
+
+instructions:
+  - assets:download
+  - assets:extract
+  - android:androidManifest
+  - android:flavorizrGradle
+  - android:buildGradle
+  - ios:xcconfig
+  - ios:buildTargets
+  - ios:schema
+  - ios:plist
+  - assets:clean
